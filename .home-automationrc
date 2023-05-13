@@ -1,0 +1,30 @@
+[libs.boilerplate]
+  CACHE_HOST=192.168.1.100
+  CACHE_PROVIDER=redis
+  ; LOG_LEVEL=trace
+  LOG_LEVEL=debug
+
+[libs.home-assistant]
+  TALK_BACK_BASE_URL=http://192.168.1.100:8008
+  HOME_ASSISTANT_PACKAGE_FOLDER=/path/to/homeassistant/packages
+  APPLICATION_IDENTIFIER=home_automation
+  BASE_URL=http://192.168.1.100:8123
+  TOKEN=<long lived access token>
+
+[libs.server]
+  PORT=8008
+  ADMIN_KEY=super-secret-password
+
+[libs.mqtt.CLIENT_OPTIONS]
+  host=192.168.1.100
+  ; username=username
+  ; password=password
+
+[libs.gotify]
+  BASE_URL=http://192.168.1.100:8800
+  TOKEN=<TOKEN>
+
+[libs.gotify.CHANNEL_MAPPING]
+  controller=<...>
+  testing=<...>
+  reminders=<...>

@@ -1,0 +1,4 @@
+[libs.home-assistant]
+  TOKEN=<long lived access token>
+  BASE_URL=http://192.168.1.100:8123
+  HOME_ASSISTANT_PACKAGE_FOLDER=/path/to/homeassistant/packages

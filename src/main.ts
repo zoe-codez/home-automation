@@ -1,19 +1,13 @@
-import { AutoLogService, QuickScript } from "@digital-alchemy/boilerplate";
-import { WeatherService } from "./services";
+// ! Import first
+import "./includes/plugins";
+import { Bootstrap } from "@digital-alchemy/boilerplate";
 
-@QuickScript({
-  application: "example-script",
-  providers: [WeatherService],
-})
-export class ExampleScript {
-  constructor(
-    private readonly logger: AutoLogService,
-    private readonly weather: WeatherService,
-  ) {}
+import { HomeAutomationModule } from "./modules";
 
-  public async exec() {
-    this.logger.info(`Fetching weather`);
-    const weather = await this.weather.getWeather();
-    console.log(weather);
-  }
-}
+Bootstrap(HomeAutomationModule, {
+  logging: {
+    prettyLog: {
+      prettyOptions: { singleLine: true },
+    },
+  },
+});
