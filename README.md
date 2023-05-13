@@ -8,7 +8,7 @@ This is a minimal example repository, intended as a proof of concept that lives 
 
 ```bash
 git clone https://github.com/zoe-codez/app-base.git
-cd ./quickscript
+cd ./app-base
 yarn
 ```
 
