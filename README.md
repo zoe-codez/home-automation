@@ -5,17 +5,7 @@ The code is based off an actual running setup, and may not necessarily do things
 
 It is not intended to run as-is, but acts as reference code and potential starting point for your own setup
 
-## Try it out
-
-### Install
-
-```bash
-git clone https://github.com/zoe-codez/home-automation.git
-cd ./home-automation
-yarn
-```
-
-### Custom type definitions
+## Custom type definitions
 
 Running `yarn types` will rebuild the dynamic types used in the home automation libraries.
 Use the [.hass-type-generaterc](./.hass-type-generaterc) file to configure which Home Assistant instance is pulled from
