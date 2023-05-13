@@ -1,0 +1,245 @@
+{
+  "folders": [{ "path": "." }],
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Attach to script",
+        "type": "node",
+        "request": "attach",
+        "port": 37373
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      // * editor cosmetic
+      // ~ text highlighting / formatting
+      "aaron-bond.better-comments",
+      // ~ material icon theme
+      "pkief.material-icon-theme",
+      // ~ nx console (optional)
+      "nrwl.angular-console",
+
+      // * linting
+      // ~ eslint
+      "dbaeumer.vscode-eslint",
+      // ~ dockerfile linting
+      "exiasr.hadolint",
+      // ~ shell file linting
+      "timonwong.shellcheck",
+
+      // * formatting
+      // ~ code formatting
+      "esbenp.prettier-vscode",
+      // ~ import sorting
+      "nsoult.typescript-imports-sort"
+    ],
+    "unwantedRecommendations": []
+  },
+  "settings": {
+    "material-icon-theme.files.associations": {
+      // * TSConfig
+      "tsconfig.app.json": "nodejs_alt",
+      "tsconfig.base.json": "nodejs_alt",
+      "tsconfig.build.json": "nodejs_alt",
+      "tsconfig.doc.json": "nodejs_alt",
+      "tsconfig.json": "nodejs_alt",
+      "tsconfig.lib.json": "nodejs_alt",
+      "tsconfig.spec.json": "nodejs_alt",
+
+      // * Project Visbility
+      "*.docker-compose.yaml": "docker",
+      "*.entity.ts": "bithound",
+      "*.environment.ts": "dune",
+      "*.interceptor.ts": "nest-pipe",
+      "*.main.ts": "exe",
+      "*.strategy.ts": "nest-resolver",
+      "config.ts": "makefile",
+      "environment.ts": "dune",
+      "index.ts": "stitches",
+      "main.ts": "exe",
+      "package.json": "npm",
+      "project.json": "nrwl",
+      "workspace.json": "nrwl"
+    },
+    "material-icon-theme.folders.associations": {
+      // * Root
+      ".config": "config",
+      ".VSCodeCounter": "batch",
+
+      // * Project internal
+      "entrypoints": "kubernetes",
+      "editors": "svelte",
+      "filters": "other",
+      "interceptors": "hook",
+      "modules": "redux-reducer",
+      "recordings": "animation",
+
+      // * Misc
+      "push": "interface",
+      "explorers": "context"
+    },
+    "explorer.fileNesting.patterns": {
+      "project.json": "jest.config.js, .babelrc",
+      "package.json": ".npmrc, yarn.lock",
+      ".eslintrc.json": ".editorconfig, jest.preset.js, jest.config.ts, babel.config.json, .prettierrc, .prettierignore, .pino-prettyrc, .gitignore, .eslintignore, .dockerignore",
+      "app-base.code-workspace": "LICENSE"
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/dist": true,
+      "**/dist/config": true,
+      "**/*.code-search": true,
+      "**/tools": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/*vsix": true,
+      "**/CVS": true,
+      "**/.DS_Store": true
+    },
+    // ! <Decorative>
+    "better-comments.tags": [
+      // ! Important information
+      // * Block explanations
+      // ? Command explanation
+      // % Inline code type snippets
+      // - List A
+      // ~ List B
+      // TODO: Some example stuff
+      // # Block A
+      // ## Block B
+      // ### Block C
+      {
+        // Super important
+        "tag": "!",
+        "color": "#000",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "#E01541",
+        "bold": true,
+        "italic": false
+      },
+      {
+        // Comment comment
+        "tag": ">",
+        "color": "#C25B78",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        // Contextual explanation
+        "tag": "?",
+        "color": "#03C956",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        // Block context
+        "tag": "*",
+        "color": "#057EF0",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": false
+      },
+      {
+        // List A
+        "tag": "-",
+        "color": "#CC00C5",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        // Terse reference snippets
+        "tag": "%",
+        "color": "#FF600A",
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        // List B (indent)
+        "tag": "~",
+        "color": "#E9BA20",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        // Double commented (increase visibility)
+        "tag": "//",
+        "color": "#394648",
+        "strikethrough": true,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "todo",
+        "color": "#000",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#FF8C00",
+        "bold": false,
+        "italic": false
+      },
+      {
+        // High level block
+        "tag": "###",
+        "color": "#000",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#D36135",
+        "bold": true,
+        "italic": false
+      },
+      {
+        // High level block
+        "tag": "##",
+        "color": "#000",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#A24936",
+        "bold": true,
+        "italic": false
+      },
+      {
+        // High level block
+        "tag": "#",
+        "color": "#000",
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#3E5641",
+        "bold": true,
+        "italic": false
+      }
+    ],
+    // ! </Decorative>
+    "typescript.tsdk": "node_modules/typescript/lib"
+  }
+}
