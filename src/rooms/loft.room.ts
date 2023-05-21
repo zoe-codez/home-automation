@@ -1,8 +1,4 @@
-import {
-  ROOM_SCENES,
-  SceneRoom,
-  SolarEvent,
-} from "@digital-alchemy/automation-logic";
+import { SceneRoom, SolarEvent } from "@digital-alchemy/automation-logic";
 import {
   AutoLogService,
   Cron,

@@ -4,12 +4,12 @@ import {
   SolarCalcService,
   refTimes,
 } from "@digital-alchemy/automation-logic";
-import { AutoLogService, Cron, OnEvent } from "@digital-alchemy/boilerplate";
+import { AutoLogService, Cron } from "@digital-alchemy/boilerplate";
 import {
   ENTITY_STATE,
-  iCallService,
   InjectCallProxy,
   InjectEntityProxy,
+  iCallService,
 } from "@digital-alchemy/home-assistant";
 import dayjs from "dayjs";
 

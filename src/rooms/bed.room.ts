@@ -1,7 +1,6 @@
 import {
   DeterministicSwitch,
   refTimes,
-  ROOM_SCENES,
   SceneRoom,
 } from "@digital-alchemy/automation-logic";
 import { AutoLogService } from "@digital-alchemy/boilerplate";
@@ -16,6 +15,7 @@ import {
 import dayjs from "dayjs";
 
 import { BedPico, BedroomPico, RoomNames } from "../includes";
+import { BedroomScenes } from "src/includes/room-config";
 
 @SceneRoom({
   name: "bedroom",
@@ -108,7 +108,7 @@ export class Bedroom {
   }
 
   private get currentScene() {
-    return this.sceneEntity.attributes.scene as ROOM_SCENES<"bedroom">;
+    return this.sceneEntity.attributes.scene as BedroomScenes;
   }
 
   private get highScene() {

@@ -1,7 +1,5 @@
 import {
   DeterministicSwitch,
-  OnSceneChange,
-  ROOM_SCENES,
   SceneRoom,
   refTimes,
 } from "@digital-alchemy/automation-logic";
@@ -17,6 +15,7 @@ import { CronExpression, HALF } from "@digital-alchemy/utilities";
 import { isDateString } from "class-validator";
 import dayjs from "dayjs";
 
+import { LivingScenes } from "src/includes/room-config";
 import { LivingPico } from "../includes";
 
 @SceneRoom({
@@ -84,7 +83,7 @@ export class LivingRoom {
   ) {}
 
   private get currentScene() {
-    return this.sceneEntity.attributes.scene as ROOM_SCENES<"living">;
+    return this.sceneEntity.attributes.scene as LivingScenes;
   }
 
   @DeterministicSwitch({
@@ -139,8 +138,8 @@ export class LivingRoom {
       "switch.windows_open",
       "switch.downstairs_auto_wax",
       "binary_sensor.zoe_is_home",
+      "sensor.living_current_scene",
     ],
-    onEvent: [OnSceneChange("living")],
   })
   protected get waxShouldBeOn(): boolean {
     if (this.isHome.state === "off") {

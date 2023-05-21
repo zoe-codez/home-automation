@@ -1,26 +1,23 @@
 import {
   DeterministicSwitch,
-  OnSceneChange,
-  ROOM_SCENES,
-  SCENE_CHANGE,
   SceneRoom,
   SolarCalcService,
   SolarEvent,
   refTimes,
 } from "@digital-alchemy/automation-logic";
-import { AutoLogService, Cron, OnEvent } from "@digital-alchemy/boilerplate";
+import { AutoLogService, Cron } from "@digital-alchemy/boilerplate";
 import {
   ENTITY_STATE,
   InjectCallProxy,
   InjectEntityProxy,
   OnEntityUpdate,
-  PICK_ENTITY,
   TemplateButton,
   iCallService,
 } from "@digital-alchemy/home-assistant";
 import dayjs from "dayjs";
 
-import { Office1Pico, OfficePico, RoomNames } from "../includes";
+import { OfficeScenes } from "src/includes/room-config";
+import { Office1Pico, OfficePico } from "../includes";
 
 const TARGET_FAN = "fan.office_ceiling_fan";
 
@@ -74,6 +71,7 @@ const TARGET_FAN = "fan.office_ceiling_fan";
       "light.office_closet": { state: "off" },
       "light.office_fan": { state: "off" },
       "switch.desk_light": { state: "off" },
+      "switch.foot_fan": { state: "off" },
       "switch.mega_matrix": { state: "off" },
     },
   },
@@ -103,7 +101,7 @@ export class Office {
   ) {}
 
   public get currentScene() {
-    return this.sceneEntity.attributes.scene as ROOM_SCENES<"office">;
+    return this.sceneEntity.attributes.scene as OfficeScenes;
   }
 
   private get meetingMode() {
@@ -168,21 +166,12 @@ export class Office {
   @DeterministicSwitch({
     entity_id: "switch.wax_warmer",
     onEntityUpdate: ["switch.windows_open", "sensor.office_current_scene"],
-    onEvent: [OnSceneChange("office")],
   })
   protected get waxWarmerShouldBeOn() {
     if (this.windowOpen.state === "on") {
       return false;
     }
     return this.currentScene !== "off";
-  }
-
-  @OnEvent(SCENE_CHANGE<RoomNames>("office"))
-  public async onScene(scene: ROOM_SCENES<"office">): Promise<void> {
-    if (scene === "off") {
-      const entity_id = ["switch.foot_fan"] as PICK_ENTITY<"switch">[];
-      await this.call.switch.turn_off({ entity_id });
-    }
   }
 
   @Cron("30 22 * * *")
