@@ -23,10 +23,16 @@ enum PicoIds {
   living = "e9d176254b6d9b9e7d8aa06aa74c7d8f",
 }
 
-type Buttons = "lower" | "stop" | "on" | "off" | "raise";
+export enum Buttons {
+  lower = "lower",
+  stop = "stop",
+  on = "on",
+  off = "off",
+  raise = "raise",
+}
 
 function LutronPicoSequenceMatcher(target_device: PicoIds) {
-  return function (match: Buttons[]) {
+  return function (match: `${Buttons}`[]) {
     return SequenceWatcher({
       // eslint-disable-next-line spellcheck/spell-checker
       event_type: "lutron_caseta_button_event",
@@ -37,7 +43,6 @@ function LutronPicoSequenceMatcher(target_device: PicoIds) {
     });
   };
 }
-
 export const BedroomPico = LutronPicoSequenceMatcher(PicoIds.bedroom);
 export const BedPico = LutronPicoSequenceMatcher(PicoIds.bed);
 export const LoftPico = LutronPicoSequenceMatcher(PicoIds.loft);

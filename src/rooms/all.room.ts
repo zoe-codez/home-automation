@@ -5,24 +5,17 @@ import {
   SolarCalcService,
   SolarEvent,
 } from "@digital-alchemy/automation-logic";
-import { AutoLogService, Cron } from "@digital-alchemy/boilerplate";
+import { AutoLogService } from "@digital-alchemy/boilerplate";
 import { GotifyApp, MessagePriority, SendFrom } from "@digital-alchemy/gotify";
 import {
   ENTITY_STATE,
   InjectCallProxy,
   InjectEntityProxy,
-  InjectPushEntity,
   OnEntityUpdate,
-  PUSH_PROXY,
   TemplateButton,
   iCallService,
 } from "@digital-alchemy/home-assistant";
-import {
-  CronExpression,
-  HALF,
-  MINUTE,
-  sleep,
-} from "@digital-alchemy/utilities";
+import { HALF, MINUTE, sleep } from "@digital-alchemy/utilities";
 
 import {
   BedPico,
@@ -60,8 +53,6 @@ export class AllRooms {
     private readonly lockBack: ENTITY_STATE<"lock.back_door">,
     @InjectEntityProxy("binary_sensor.zoe_is_home")
     private readonly isHome: ENTITY_STATE<"binary_sensor.zoe_is_home">,
-    @InjectPushEntity("sensor.last_exterior_timelapse_timestamp")
-    private readonly lastTimelapseTimestamp: PUSH_PROXY<"sensor.last_exterior_timelapse_timestamp">,
   ) {}
 
   public isAway = false;

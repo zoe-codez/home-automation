@@ -13,8 +13,8 @@ import { MQTTModule } from "@digital-alchemy/mqtt";
 import { ServerModule } from "@digital-alchemy/server";
 import { DiscoveryModule } from "@nestjs/core";
 
-import { AutomationLogicRoomConfig } from "src/includes/room-config";
 import { AllRooms, Bedroom, Kitchen, LivingRoom, Loft, Office } from "../rooms";
+import { AutomationLogicRoomConfig } from "../includes";
 
 @ApplicationModule({
   application: "home-automation",
